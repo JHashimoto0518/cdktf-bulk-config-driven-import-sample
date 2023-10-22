@@ -11,7 +11,7 @@ class MyStack extends TerraformStack {
       region: "ap-northeast-1",
     });
 
-    new S3Bucket(this, "bucket", {}).importFrom("test-cdktf-import-20231022");
+    new S3Bucket(this, "bucket", {});
   }
 }
 
