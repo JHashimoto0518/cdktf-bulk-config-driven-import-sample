@@ -10,5 +10,5 @@ class MyStack extends TerraformStack {
 }
 
 const app = new App();
-new MyStack(app, "test");
+new MyStack(app, "config-driven-import");
 app.synth();
