@@ -19,7 +19,7 @@ class MyStack extends TerraformStack {
 
     // すべてのバケットに対してインポートを実行
     for (const bucketName of bucketList) {
-      new S3Bucket(this, bucketName, {}).importFrom(bucketName);
+      new S3Bucket(this, bucketName, {});
     }
   }
 }
