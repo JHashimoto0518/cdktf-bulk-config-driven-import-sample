@@ -1,11 +1,26 @@
 import { Construct } from "constructs";
 import { App, TerraformStack } from "cdktf";
+import { AwsProvider } from "@cdktf/provider-aws/lib/provider";
+import { S3Bucket } from "@cdktf/provider-aws/lib/s3-bucket";
 
 class MyStack extends TerraformStack {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    // define resources here
+    new AwsProvider(this, "AWS", {
+      region: "ap-northeast-1",
+    });
+
+    // バケットのリスト
+    const bucketList = [
+      "cdktf-test-web-20231024",
+      "cdktf-test-log-20231024",
+    ];
+
+    // すべてのバケットに対してインポートを実行
+    for (const bucketName of bucketList) {
+      new S3Bucket(this, bucketName, {}).importFrom(bucketName);
+    }
   }
 }
 
