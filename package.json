@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "textlint": "^13.4.1",
+    "textlint-rule-aws-service-name": "^1.6.0"
+  }
+}
